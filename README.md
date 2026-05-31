@@ -1,121 +1,290 @@
-# Retail-sales-and-customer-analytics
-"Analyzing retail sales and customer behavior to optimize revenue, retention, and marketing strategies using SQL Server."
----
-##  1. Background and Overview
+# Retail Sales and Customer Analytics
 
-As a Data Analyst, this project focuses on using SQL Server to transform raw retail sales data into actionable insights.
-By analyzing customer behavior, sales trends, product performance, and retention patterns, the project helps businesses make informed decisions.
-
-**Key Notes:**
-> Excel was only used to import the raw datasets into SQL Server.
-> All data cleaning, transformation, aggregation, and analysis were performed using T-SQL queries.
-> Insights generated can help optimize marketing, inventory, retention strategies, and revenue growth.
-
-**Business Context & Goals:**
-- Clean and transform raw retail datasets into structured, analyzable tables.
-- Identify high-value customers and product performance patterns.
-- Understand seasonal and temporal trends in sales and revenue.
-- Provide recommendations for targeted marketing and retention strategies.
-
-**Why this project matters:**  
-- Retail datasets are often inconsistent and require extensive cleaning.
-- Insights can guide promotions, inventory, and customer engagement campaigns.
-- Helps reduce churn, increase customer lifetime value (LTV), and maximize revenue.
+![SQL Server](https://img.shields.io/badge/SQL%20Server-Database-red)
+![T-SQL](https://img.shields.io/badge/T--SQL-Analysis-blue)
+![Data Analytics](https://img.shields.io/badge/Data-Analytics-green)
+![Status](https://img.shields.io/badge/Project-Completed-brightgreen)
 
 ---
 
-##  2. Data Structure Overview
+## Project Overview
 
-**Main Tables Used:**
+This project demonstrates how SQL Server and T-SQL can be used to transform raw retail sales data into actionable business insights.
 
-1. **`customer_summary`**
-   - Columns: `CustomerID`, `total_orders`, `total_quantity`, `total_spent`, `first_purchase_date`, `last_purchase_date`, etc.
-   - Cleansing Steps: Removed nulls/invalid values, standardized numeric and date fields, removed duplicates, split datetime into date and time.
-   - Key Metrics: Customer retention, churn, LTV, repeat purchase rate.
+The analysis focuses on customer behavior, revenue trends, product performance, customer retention, churn analysis, and customer segmentation. The project follows a structured SQL analytics workflow, starting from data cleaning and transformation to advanced business analysis and insight generation.
 
-2. **`monthly_sales`**
-   - Columns: `InvoiceMonth`, `monthly_revenue`
-   - Cleansing Steps: Removed duplicates, fixed invalid/null data, standardized dates to first day of month, converted revenue to INT.
-
-3. **`retail_cleaned`**
-   - Columns: `InvoiceNo`, `StockCode`, `Quantity`, `UnitPrice`, `TotalPrice`, `Invoice_Date`, `Invoice_Time`, `InvoiceMonth`
-   - Cleansing Steps: Removed duplicates, converted data types, extracted date/time from datetime, ensured proper revenue calculations.
-
-4. **`retail_segmented`**
-   - Columns: `InvoiceNo`, `CustomerID`, `StockCode`, `Quantity`, `UnitPrice`, `TotalPrice`, `Invoice_Date`, `Invoice_Time`
-   - Cleansing Steps: Removed duplicates, converted columns to proper types, created cleaned table `cleaned_retail_segment`.
+Excel was used only for importing raw datasets into SQL Server. All data cleaning, transformation, aggregation, and analysis were performed using T-SQL.
 
 ---
 
-##  3. Executive Summary
+## Business Problem
 
-**Key Insights:**
+Retail businesses generate large volumes of transactional data, but raw data alone cannot support strategic decision-making.
 
-- **Customer Loyalty:** 66% of customers are returning, showing strong retention.
-- **Revenue Concentration:** Top 10 products contribute ~2% each; many products generate negligible sales.
-- **High-Value Segments:** Segment 4 contains 3,055 customers, contributing significant revenue.
-- **Seasonal Trends:** Peak sales occur in November, with notable drops in December 2011.
-- **Engagement Patterns:** Peak shopping occurs midday, especially on Tuesday and Wednesday.
-- **Churn & Activation:** ~22% churn over 6 months; only ~37% of new customers purchase within 7 days.
+This project aims to:
 
----
-
-##  4. Insights Deep Dive
-
-**Insight 1: Customer Retention**
-- **Quantified Value:** 65.58% repeat purchase rate
-- **Metric:** Retention
-- **Story:** Two-thirds of customers make multiple purchases, with high loyalty in segments 2 & 3.
-
-**Insight 2: Revenue Concentration**
-- **Quantified Value:** Top 10 products drive up to 2% each of revenue
-- **Metric:** Revenue Concentration
-- **Story:** Few products generate majority of revenue; low-performing products should be re-evaluated.
-
-**Insight 3: Seasonal Trends**
-- **Quantified Value:** November 2011 → ₹1.49M revenue
-- **Metric:** Monthly Revenue
-- **Story:** Marketing and inventory should focus on weeks 45–50 for maximum impact.
-
-**Insight 4: High-Value Customers at Risk**
-- **Quantified Value:** Top 20 customers with ≥₹250k spent, inactive ≥6 months
-- **Metric:** Churn Risk
-- **Story:** Target retention campaigns to retain high-value customers.
-
-**Insight 5: Activation Gap**
-- **Quantified Value:** Average 130 days to first purchase; 36.54% purchase within 7 days
-- **Metric:** Customer Activation
-- **Story:** Faster onboarding needed to convert new customers earlier.
+- Clean and transform raw retail datasets into structured tables
+- Analyze customer purchasing behavior
+- Identify high-value customers
+- Evaluate product performance
+- Understand revenue and seasonal trends
+- Measure customer retention and churn
+- Provide recommendations for revenue growth and customer engagement
 
 ---
 
-##  5. Recommendations
+## Technology Stack
 
-- Introduce **loyalty programs** for high-value segments (Segment 2 & 3).  
-- **Promote top-selling products** during peak months (October–November).  
-- **Target at-risk high-value customers** with personalized campaigns.  
-- Reduce **churn in Segment 1** through engagement and incentives.  
-- Improve **new customer activation** by streamlining onboarding within the first 7 days.
-
----
-
-##  6. Caveats and Assumptions
-
-- Churn calculation assumes no purchase in last 6 months.  
-- Average time to second purchase seems unusually low (1 day); verify dataset and multiple same-day transactions.  
-- ROI and revenue insights do not account for cost data.  
-- Some negative monthly churn rates indicate more new customers than lost customers in that period.  
-- Segmentation and revenue attribution assume accurate mapping of customers to segments.
+| Category | Tools |
+|-----------|---------|
+| Database | SQL Server |
+| Query Language | T-SQL |
+| Data Import | Microsoft Excel |
+| Analysis | SQL-Based Business Analytics |
+| Version Control | Git & GitHub |
 
 ---
 
-##  7. Tools:
-     1. SQL Server – Primary platform used for data cleaning, transformation, aggregation, and analysis using T-SQL queries.
-     2. T-SQL – Advanced querying language used to calculate metrics like retention, churn, revenue trends, and customer segmentation.
-     3. Excel – Only used to import raw datasets into SQL Server; no analysis or transformation was performed in Excel.
+## Data Structure
 
-## 8. Conclusion:
-      This project provides a comprehensive view of retail sales and customer behavior, demonstrating how SQL Server can be used to clean, prepare, and analyze raw data to generate actionable business insights.
-      By examining customer behavior, product performance, revenue trends, and retention patterns, businesses
-      Overall, this analysis highlights the importance of structured SQL workflows and thorough data cleaning, 
-      turning raw retail datasets into insights that support strategic business decisions and long-term growth.
+### customer_summary
+
+Contains customer-level aggregated metrics.
+
+**Key Columns**
+- CustomerID
+- Total Orders
+- Total Quantity
+- Total Spent
+- First Purchase Date
+- Last Purchase Date
+
+**Business Metrics**
+- Customer Lifetime Value (LTV)
+- Retention Rate
+- Repeat Purchase Rate
+- Churn Analysis
+
+---
+
+### monthly_sales
+
+Contains monthly revenue information.
+
+**Key Columns**
+- InvoiceMonth
+- Monthly Revenue
+
+**Business Metrics**
+- Revenue Trends
+- Seasonal Analysis
+- Growth Tracking
+
+---
+
+### retail_cleaned
+
+Cleaned transactional dataset.
+
+**Key Columns**
+- InvoiceNo
+- StockCode
+- Quantity
+- UnitPrice
+- TotalPrice
+- Invoice_Date
+- Invoice_Time
+- InvoiceMonth
+
+---
+
+### retail_segmented
+
+Customer segmentation dataset.
+
+**Key Columns**
+- CustomerID
+- InvoiceNo
+- Quantity
+- UnitPrice
+- TotalPrice
+- Invoice_Date
+- Invoice_Time
+
+---
+
+## Data Cleaning & Transformation
+
+The following preprocessing steps were performed using T-SQL:
+
+- Removed duplicate records
+- Handled null and invalid values
+- Standardized date formats
+- Converted columns to appropriate data types
+- Split datetime into separate date and time fields
+- Created monthly revenue tables
+- Built customer summary tables
+- Generated segmented customer datasets
+
+---
+
+## Executive Summary
+
+### Customer Loyalty
+- Repeat Purchase Rate: **65.58%**
+- Nearly two-thirds of customers make multiple purchases.
+
+### Revenue Concentration
+- Top 10 products contribute approximately **2% each** of total revenue.
+- Revenue is concentrated among a small number of products.
+
+### Seasonal Trends
+- Highest monthly revenue occurred in **November 2011**
+- Revenue peaked at approximately **₹1.49 Million**
+
+### High-Value Customers at Risk
+- Several top-spending customers have been inactive for over six months.
+- These customers represent significant churn risk.
+
+### Customer Activation
+- Only **36.54%** of customers make their first purchase within 7 days.
+- Average activation time is approximately **130 days**
+
+---
+
+## Key Insights
+
+### Customer Retention
+**Metric:** Repeat Purchase Rate
+
+**Value:** 65.58%
+
+**Insight:** A strong majority of customers return for additional purchases, indicating healthy customer loyalty and retention.
+
+---
+
+### Revenue Concentration
+**Metric:** Product Revenue Contribution
+
+**Value:** Top products contribute approximately 2% each.
+
+**Insight:** A limited number of products drive a significant portion of overall revenue.
+
+---
+
+### Seasonal Revenue Trends
+**Metric:** Monthly Revenue
+
+**Value:** ₹1.49M Revenue (November 2011)
+
+**Insight:** Sales activity peaks during the holiday season, making October–November critical periods for inventory and promotions.
+
+---
+
+### High-Value Customer Churn Risk
+**Metric:** Inactive High-Spending Customers
+
+**Insight:** Targeted retention campaigns can help preserve valuable customer relationships.
+
+---
+
+### Customer Activation Gap
+**Metric:** Time to First Purchase
+
+**Value:** 36.54% purchase within 7 days
+
+**Insight:** Improving onboarding and engagement could accelerate customer conversion.
+
+---
+
+## Recommendations
+
+- Launch loyalty programs for high-value customer segments
+- Focus promotional campaigns during October and November
+- Retain at-risk customers through personalized marketing
+- Improve customer onboarding processes
+- Review low-performing products for optimization
+- Implement targeted retention strategies
+
+---
+
+## Project Workflow
+
+```text
+Raw Retail Data
+       │
+       ▼
+Data Cleaning
+       │
+       ▼
+Data Transformation
+       │
+       ▼
+Customer Segmentation
+       │
+       ▼
+Business Analysis
+       │
+       ▼
+Insights & Recommendations
+```
+
+---
+
+## Tools Used
+
+### SQL Server
+Primary platform used for:
+- Data cleaning
+- Data transformation
+- Aggregation
+- Business analytics
+
+### T-SQL
+Used for:
+- Joins
+- Window Functions
+- Aggregations
+- Customer Segmentation
+- Churn Analysis
+- Revenue Analysis
+
+### Microsoft Excel
+Used only for importing raw datasets into SQL Server.
+
+---
+
+## Caveats
+
+- Churn is defined as no purchase activity within six months
+- Revenue analysis does not include cost or profit information
+- Some customers may have multiple same-day transactions
+- Segmentation results depend on available customer data quality
+- Findings are limited to the scope of the provided dataset
+
+---
+
+## Key Outcomes
+
+- Built a complete SQL-based analytics workflow
+- Measured customer retention and churn
+- Identified high-value customer segments
+- Analyzed product performance and revenue concentration
+- Discovered seasonal sales trends
+- Generated actionable business recommendations
+
+---
+
+## Conclusion
+
+This project demonstrates how SQL Server and T-SQL can transform raw retail transaction data into meaningful business insights.
+
+By analyzing customer behavior, revenue trends, product performance, and retention patterns, the project provides valuable recommendations that support strategic business decisions, improve customer engagement, and drive long-term revenue growth.
+
+---
+
+## Author
+
+**HARITHA S**
+
+Data Analyst | SQL Server
